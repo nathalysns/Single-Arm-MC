@@ -354,12 +354,12 @@ c	read (chanin,1001) str_line
 !	write(6,*) str_line(1:last_char(str_line))
 !	if (.not.rd_real(str_line,rad_len_cm)) stop 'ERROR (RAD_LEN_CM) in setup!'
 	if(tarid==0) rad_len_cm = 999!dummy
-	if(tarid==1) rad_len_cm = 21561.73 !122.6 g/cm2 D2
-	if(tarid==2) rad_len_cm = 55779.15 ! 183.6 g/cm2 H3
-	if(tarid==3) rad_len_cm = 31581.41 !71.07 g/cm2 He3
+	if(tarid==1) rad_len_cm = 122.6 !g/cm2 D2
+	if(tarid==2) rad_len_cm = 183.6 !g/cm2 H3
+	if(tarid==3) rad_len_cm = 71.07 !g/cm2 He3
 	if(tarid==4.or.tarid==5) rad_len_cm = 8.89 !Al
-	if(tarid==6) rad_len_cm = 19.32 !C`
-	
+	if(tarid==6) rad_len_cm = 19.32 !C
+
 ! Beam and target offsets
 	read (chanin, 1001) str_line
 	write(6,*) str_line(1:last_char(str_line))

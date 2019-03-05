@@ -12,7 +12,7 @@ C-_____________________________________________________________________
 
 	real*8 Es, epsilon
 	parameter (Es = 13.6)		!MeV
-	parameter (epsilon = 0.088)
+	parameter (epsilon = 0.038)
 
 	real*8 rad_len, x_len, dth, dph, x, y
 	real*8 beta, g1, g2, theta_sigma
