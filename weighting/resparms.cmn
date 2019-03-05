@@ -1,0 +1,7 @@
+C RESSF Model Common Block
+
+        real*8  xval1(50),xvall(50)
+	
+	COMMON/resparms/ xval1,xvall
+    
+******************************end:resparms.cmn**************************************

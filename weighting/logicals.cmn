@@ -1,0 +1,18 @@
+C Logicals Common Block
+
+        logical firstcs,firstcsdum,firstres,first_ressf
+	COMMON/logicals/ firstcs,firstcsdum,firstres,first_ressf
+    
+******************************end:logicals.cmn**************************************
+
+
+
+
+
+
+
+
+
+
+
+

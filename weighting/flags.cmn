@@ -1,0 +1,18 @@
+C FLAGS Common Block
+
+        logical usenmc
+	COMMON/flags/ usenmc
+    
+******************************end:logicals.cmn**************************************
+
+
+
+
+
+
+
+
+
+
+
+

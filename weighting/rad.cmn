@@ -1,0 +1,21 @@
+C Rad Common Block
+
+        logical firstrad
+        integer*4 ientries,eentries
+	real*4 exttab(50000,12),inttab(10000,9)
+
+	COMMON/rad/ientries,eentries,firstrad,exttab,inttab
+    
+******************************end:rad.cmn**************************************
+
+
+
+
+
+
+
+
+
+
+
+

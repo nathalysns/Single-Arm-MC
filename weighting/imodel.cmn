@@ -1,0 +1,11 @@
+C Ioana's Model Common Block
+
+        real*8  xval(37),xvalh(36),tmptmp
+        integer j
+        logical first
+	
+	
+
+	COMMON/imodel/ first,j,xval,xvalh,tmptmp
+    
+******************************end:imodel.cmn**************************************

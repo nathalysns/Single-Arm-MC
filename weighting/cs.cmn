@@ -1,0 +1,25 @@
+C Charge Symmetric Background Common Block
+ 
+        real*4 yd_min_al(51),yd_max_al(51),fact10_al(51)
+	real*4 fact14_al(51),fact18_al(51),fact22_al(51)
+        real*4 yd_min_t(51),yd_max_t(51),fact10_t(51)
+	real*4 fact14_t(51),fact18_t(51),fact22_t(51)
+       
+	COMMON/cs/ yd_min_al,yd_max_al,fact10_al,
+&                  fact14_al,fact18_al,fact22_al,
+&                  yd_min_t,yd_max_t,fact10_t,
+&                  fact14_t,fact18_t,fact22_t
+
+******************************end:cs.cmn**************************************
+
+
+
+
+
+
+
+
+
+
+
+
