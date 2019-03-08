@@ -41,7 +41,7 @@
      0          flag to correct energy loss for outgoing particles in reconstruction 
      0.0034	target density in g/cm^3
      1		target atomic number Z
-     3.01604	target standard atomic weight A   
+     3.01605	target standard atomic weight A   
      0.635      target width(radius) in cm. 
      0.0203     For an extended target (Endcap thickness)
      0.04615	For an extended target (wall thickness)	  

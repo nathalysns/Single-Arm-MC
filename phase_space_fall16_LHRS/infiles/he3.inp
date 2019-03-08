@@ -39,7 +39,7 @@
      0          flag for taking input from data file
      0          flag to simulate energy loss for outgoing particles 
      0          flag to correct energy loss for outgoing particles in reconstruction 
-     0.002132	target density in g/cm^3
+     0.002135	target density in g/cm^3
      2		target atomic number Z
      3.01602	target standard atomic weight A   
      0.635      target width(radius) in cm. 
