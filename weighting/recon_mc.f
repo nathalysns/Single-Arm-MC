@@ -155,22 +155,19 @@ CCCCCC        Read in target data from file                CCCCCCC
        enddo        
 
         
-        phase_space = 4.0*dxp/1000.*dyp/1000.*dep*1000    !rad*rad*Mev for XEMC(nb/MeV/sr)!!
+        phase_space = 4.0*dxp/1000.*dyp/1000.*dep    !rad*rad*Gev for XEMC(nb/GeV/sr)!!
 
 c       scal factor.
         fract = lumdata*phase_space/ngentot
-        fract = fract/1000.                        !if use Erics model (ub)
 
-c	write(6,*) 'fract = ',fract
-!!      density correction for gas target
-        denscor = 1.0 - bmcur/25*0.2
+        denscor = 1.0 !- bmcur/25*0.2
         if(tarid.GT.3) denscor = 1.0
 
-        eff_cer = 0.996 !!!!  Cer Efficiency  !!!!
-        eff_cal = 0.999
+        eff_cer = 1.
+        eff_cal = 1. 
 
-        fract = fract*trackeff*trigeff*cltime*eltime
-     &            *eff_cer*eff_cal/prescale*denscor
+c        fract = (fract*trackeff*trigeff*cltime*eltime
+c     &            *eff_cer*eff_cal)/(prescale*denscor)
 
 c	write(6,*) 'fract =',fract,trackeff,trigeff,cltime,eltime,
 c     &           eff_cer,eff_cal,'/',prescale,denscor
@@ -328,7 +325,8 @@ CCCCCCC           Get Model Cross section in nb/SR/GeV, and born/rad factor     
      &                                    hsev,tarid,rci,born,id)
         
          dt = thetaini - trad
-         phasespcor = 1./cos(dt)/cos(dt)/cos(dt)
+c         phasespcor = 1./cos(dt)/cos(dt)/cos(dt)
+         phasespcor = 1.
 
 !!!!!!!     Changed on 6/19/01  !!!!!!!!
 
@@ -344,25 +342,16 @@ c        make it run for now. fix later?
 
          if(born<0) born=0
 
-         delcor =  1.009+.4260E-02*delrec-.8603E-03*delrec*
-     &       delrec-.10942E-03*delrec*delrec*delrec+.12697E-04*
-     &       delrec*delrec*delrec*delrec+.1094E-07*delrec*
-     &       delrec*delrec*delrec*delrec
-
-c          delcor =  1.0077+.4707E-02*delrec-.84067E-03*delrec*
-c     &       delrec-.16119E-03*delrec*delrec*delrec+.13636E-04*
-c     &       delrec*delrec*delrec*delrec+.64174E-06*delrec*
+c         delcor =  1.009+.4260E-02*delrec-.8603E-03*delrec*
+c     &       delrec-.10942E-03*delrec*delrec*delrec+.12697E-04*
+c     &       delrec*delrec*delrec*delrec+.1094E-07*delrec*
 c     &       delrec*delrec*delrec*delrec
 
+c          if(delrec.GT.-10.0.AND.delrec.LT.-9.0) delcor=delcor/1.04
+c          if(delrec.GT.-9.0.AND.delrec.LT.-8.0) delcor=delcor/0.99
+c          if(delrec.GT.9.0.AND.delrec.LT.10.0) delcor=delcor/0.99
 
-
-          if(delrec.GT.-10.0.AND.delrec.LT.-9.0) delcor=delcor/1.04
-c          if(delrec.GT.-10.0.AND.delrec.LT.-9.0) delcor=1.00
-          if(delrec.GT.-9.0.AND.delrec.LT.-8.0) delcor=delcor/0.99
-c          if(delrec.GT.-9.0.AND.delrec.LT.-8.0) delcor=1.00
-c          if(delrec.GT.-6.0.AND.delrec.LT.-5.0) delcor=delcor/1.012
-          if(delrec.GT.9.0.AND.delrec.LT.10.0) delcor=delcor/0.99
-
+        delcor = 1.0
 CCCCCCC   Now Get RC corrections for event    CCCCCCCC
                              
           if(.not.dorc) then

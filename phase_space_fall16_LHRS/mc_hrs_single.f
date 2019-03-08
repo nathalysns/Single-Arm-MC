@@ -240,7 +240,7 @@ C Initialize HBOOK/NTUPLE if used.
 c	  filename = 'worksim/'//rawname(1:last_char(rawname))//'.rzdat'
 c	  filename = 'worksim/'//rawname(1:last_char(rawname))
 c	  write(6,*) filename  
-	  write(filename,'("worksim/T2_",a4,"_",i1,".rzdat")') id,tarid
+	  write(filename,'("worksim/T2_",a5,"_",i1,".rzdat")') id,tarid
 !	  call hropen(30,'HUT',filename,'N',1024,i)
 	  iquest(10) = 256000
 	  iquest(10) = 510000
@@ -259,7 +259,7 @@ c	  write(6,*) filename
 
 C Open Output file.
 c	write(filename,'("outfiles/src_",a5,"_",i1,".hist")') id,tarid
-	write(filename,'("outfiles/T2_",a4,"_",i1,".hist")') id,tarid
+	write(filename,'("outfiles/T2_",a5,"_",i1,".hist")') id,tarid
 
 c	filename = "outfiles/"//runid//"_"//tarid//".hist"
 	open (unit=chanout,status='unknown',file=filename)
@@ -1008,7 +1008,7 @@ C Compute reconstruction resolutions.
      >		t2,dph_var(1)/lSTOP_successes,t3,ztg_var(1)/lSTOP_successes,t4
 
 C ALL done!
-	write(filename,'("worksim/T2_",a4,"_",i1,".rzdat")') id,tarid
+	write(filename,'("worksim/T2_",a5,"_",i1,".rzdat")') id,tarid
 	write(6,*) 'Ntuple generated at ',filename
 	close(12)
 	close(chanin)
