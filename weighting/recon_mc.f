@@ -144,7 +144,7 @@ CCCCCC              Initialize radcor arrays               CCCCCCC
        
 CCCCCC        Read in target data from file                CCCCCCC
         open(unit=17, file='targetdata.dat',status='old') 
-        do i=1,20
+        do i=1,8
           read(17,*) targetdata
         
         ! Calculating the luminosity  

@@ -1,13 +1,13 @@
-1	1    	25  		2.01410178 	2  	 0.14215	D2
-2   	1    	25  	 	3.0160492   	3  	 0.085009   	H3
-3   	2    	25  	 	3.0160293   	3  	 0.0537152   	He3
-4   	13   	0.025 	 	27.00 	   	27   	 0.075     	up window
-5   	13   	0.025 	 	27.00 		27   	 0.075      	down window
-6   	6    	0.075   	12  		12 	 0.167     	single carbon foil
-4   	13   	0.09    	27  		27 	 0.24        	dummy for gmp 15cm
-5   	13   	0.09  	 	27  		27 	 0.24        	dummy for gmp 15cm
+1   1    	25  		2.01410178 	2  	 0.14215	D2
+2   1    	25  	 	3.0160492   	3  	 0.085009   	H3
+3   2    	25  	 	3.0160293   	3  	 0.0537152   	He3
+4   13   	0.025 	 	27.00 	   	27   	 0.075     	up window
+5   13   	0.025 	 	27.00 		27   	 0.075      	down window
+6   6    	0.075   	12  		12 	 0.167     	single carbon foil
+7   13   	0.09    	27  		27 	 0.24        	dummy for gmp 15cm
+8   13   	0.09  	 	27  		27 	 0.24        	dummy for gmp 15cm
 
-id    	Z	length(cm)     	g/mol    	A    	 g/cm2		Target
+id  Z	length(cm)     	g/mol    	A    	 g/cm2		Target
 
 
 
