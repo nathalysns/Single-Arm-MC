@@ -1,4 +1,4 @@
-This package generates the MC simulation for the Hall A HRS’s using the Single Arm version.
+This package generates the MC simulation for the Hall A HRSs using the Single Arm version.
 
 1. phase_space_fall16
 
@@ -89,6 +89,6 @@ make
 ./recon_MC runid tarid
 
 #### Output
-The output file is mc_"runid"_"tarid".rzdat
+The output file is output/mc_"runid"_"tarid".rzdat
 To convert to root use:
 h2root mc_"runid"_"tarid".rzdat 
