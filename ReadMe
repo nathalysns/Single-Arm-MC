@@ -76,17 +76,18 @@ It is the output of the XEMC code.
 (9) Q2
 This table will be used to assign the physics weight for each point simulated by the phase space simulation.
 
-iv) The output file of the phase space simulation  ~/phase_space_fall16_LHRS/t2_"runid"_"tarid".rzdat 
+iv) The output file of the phase space simulation  ~/phase_space_fall16/t2_"runid"_"tarid".rzdat 
 
 ##Compiling:
-# In the phase_space_fall16 folder
+# In the weighting folder
 make clean
 make
 
 #### Executing:
-# In the phase_space_fall16 folder
+# In the weighting folder
 
-./mc_hrs_single file runid tarid
+./recon_MC runid tarid
 
 
-
+#### Output
+The output file is 

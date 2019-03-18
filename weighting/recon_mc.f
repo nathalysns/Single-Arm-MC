@@ -132,12 +132,11 @@ c	if(target= =2) tarname="h3"
 c	if(target==3) tarname="he3"
 
 
-        write(outfile,'("mc_",i1,".rzdat")') tarid
+        write(outfile,'("mc_",a5,"_"i1,".rzdat")') id,tarid
 c        write(infile,'(i1,".rzdat")') tarid
         fileplace = "/work/halla/triton/nathaly/simulation/working/Sing_
      &Arm_Sim/phase_space_fall16/worksim/" 
 
-       write(6,'(a86,"t2_",a5,"_",i1,".rzdat")') fileplace,id,tarid
 c       write(infile,'(a86,"t2_",a5,"_",i1,".rzdat")') fileplace,id,tarid
 
        write(infile,'("./../phase_space_fall16/worksim/t2_",a5,"_",
