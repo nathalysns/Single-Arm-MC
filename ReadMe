@@ -88,6 +88,7 @@ make
 
 ./recon_MC runid tarid
 
-
 #### Output
-The output file is 
+The output file is mc_"runid"_"tarid".rzdat
+To convert to root use:
+h2root mc_"runid"_"tarid".rzdat 
