@@ -486,22 +486,22 @@ C Pipe going through Q1 is a little smaller than r_Q1, but use r_Q1 for now
 	ztmp = zdrift				!distance from Q2 exit
 	call project(xs,ys,zdrift,decay_flag,dflag,m2,p,pathlen) !project and decay
 	if (sqrt(xs*xs+ys*ys).gt.30.0073) then
-	  lSTOP_Q2_out = lSTOP_Q2_out + 1
-	  stop_where=13.
-	  x_stop=xs
-	  y_stop=ys
-	  goto 500
+c	  lSTOP_Q2_out = lSTOP_Q2_out + 1
+c	  stop_where=13.
+c	  x_stop=xs
+c	  y_stop=ys
+c	  goto 500
 	endif
 
 	zdrift = 641.800 - 609.664
 	ztmp = ztmp + zdrift			!distance from Q2 exit.
 	call project(xs,ys,zdrift,decay_flag,dflag,m2,p,pathlen) !project and decay
 	if (sqrt(xs*xs+ys*ys).gt.30.0073) then
-	  lSTOP_Q2_out = lSTOP_Q2_out + 1
-	  stop_where=14.
-	  x_stop=xs
-	  y_stop=ys
-	  goto 500
+c	  lSTOP_Q2_out = lSTOP_Q2_out + 1
+c	  stop_where=14.
+c	  x_stop=xs
+c	  y_stop=ys
+c	  goto 500
 	endif
 
 	zdrift = 819.489 - 641.800

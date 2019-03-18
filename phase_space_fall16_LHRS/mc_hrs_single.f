@@ -237,10 +237,8 @@ C	read(*,1968) rawname
 C Initialize HBOOK/NTUPLE if used.
 	if (hut_ntuple) then
 	  call hlimit(pawc_size)
-c	  filename = 'worksim/'//rawname(1:last_char(rawname))//'.rzdat'
-c	  filename = 'worksim/'//rawname(1:last_char(rawname))
-c	  write(6,*) filename  
-	  write(filename,'("worksim/T2_",a5,"_",i1,".rzdat")') id,tarid
+
+	  write(filename,'("worksim/t2_",a5,"_",i1,".rzdat")') id,tarid
 !	  call hropen(30,'HUT',filename,'N',1024,i)
 	  iquest(10) = 256000
 	  iquest(10) = 510000
@@ -258,8 +256,7 @@ c	  write(6,*) filename
 	endif	   
 
 C Open Output file.
-c	write(filename,'("outfiles/src_",a5,"_",i1,".hist")') id,tarid
-	write(filename,'("outfiles/T2_",a5,"_",i1,".hist")') id,tarid
+	write(filename,'("outfiles/t2_",a5,"_",i1,".hist")') id,tarid
 
 c	filename = "outfiles/"//runid//"_"//tarid//".hist"
 	open (unit=chanout,status='unknown',file=filename)

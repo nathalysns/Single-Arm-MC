@@ -682,10 +682,10 @@ C Right now particle must be at least 2.5cm from any edge.
      >      xs.lt.(hcal_prl1_top+hcal_prl1_x_offset+2.5) .or.
      >      ys.gt.(hcal_prl1_left+hcal_prl1_y_offset-2.5) .or.
      >      ys.lt.(hcal_prl1_right+hcal_prl1_y_offset+2.5) ) then
-	   lSTOP_prl1 = lSTOP_prl1 + 1
-	   stop_where=31.
-	   x_stop=xs
-	   y_stop=ys
+c	   lSTOP_prl1 = lSTOP_prl1 + 1
+c	   stop_where=31.
+c	   x_stop=xs
+c	   y_stop=ys
 	   goto 500
 	endif
 

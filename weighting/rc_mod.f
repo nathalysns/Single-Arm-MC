@@ -25,6 +25,7 @@
       xh1=.false.
       xh2=.false.
 
+c      write(filename,"(A,A5,A,I1)") "table.out.",runid,".",tarid
       write(filename,"(A,A5,A,I1)") "table.out.",runid,".",tarid
 
 

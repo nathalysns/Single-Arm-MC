@@ -8,19 +8,19 @@
      0		Spectrometer angle (in degrees)
     -50.0	M.C. DP/P  down limit 
      50.0	M.C. DP/P  up   limit 
-    -100.0	M.C. dydz down limit (mr)
-     100.0	M.C. dydz down limit (mr)  
-    -100.0	M.C. dxdz down limit (mr)
-     100.0	M.C. dxdz down limit (mr)
+    -50.0	M.C. dydz down limit (mr)
+     50.0	M.C. dydz down limit (mr)  
+    -70.0	M.C. dxdz down limit (mr)
+     70.0	M.C. dxdz down limit (mr)
      0.00886	Horiz beam spot size in cm (Full width of +/- 1 sigma)
      0.004235	Vert  beam spot size in cm (Full width of +/- 1 sigma)
      25.0       Thickness of target (Full width, cm)
      0.1        Raster half-width x (cm)
      0.1        Raster half-width y (cm)
      10.0	DP/P  reconstruction cut (half width in % )
-     100.0	Theta reconstruction cut (half width in mr)
-     100.0	Phi   reconstruction cut (half width in mr)
-     50.0	ZTGT  reconstruction cut (Half width in cm)
+     70.0	Theta reconstruction cut (half width in mr)
+     50.0	Phi   reconstruction cut (half width in mr)
+     25.0	ZTGT  reconstruction cut (Half width in cm)
      31581.41	one radiation length of target material (in cm)
      0.00607    Beam x offset (cm)  +x = beam left
      0.00981 	Beam y offset (cm)  +y = up
