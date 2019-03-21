@@ -30,16 +30,14 @@
         real*4 ntuple_contents(27),xfoc,dydz,ypcor
         real*4 hse,hsp,p_rec,hsec,hsev,thetactemp,ebeam,radcon,thetac
         real*4 thetacrad,mp,mp2,nu,sin2,q2,w2,rcic,rcib,rcec
-        real*4 rceb,trad,targetdata(6),eff_cal,eff_cer,emc
-        real*4 pie,bcm1charge,bcm2charge,gbcm1charge,hpre,edt
-        real*4 bcmavecharge,bmcur1,bmcur2,bmcur,eltime,cltime2
+        real*4 rceb,trad,targetdata(6),emc
+        real*4 pie,bcmcharge,gbcm1charge,hpre,edt,bmcur
         real*4 positron_weight,posal,born,rci,rce,delup,deldown
         real*4 delini,ytarini,yptarini,xptarini,thetaini,ztari
         real*4 delrec,ytarrec,yptarrec,xptarrec,zrec,thetarec
         real*4 w,normfac,charge,ydata,lumfract,sigmacent,sigmac
         real*4 lumdata
-        real*4 fract,sigave,sigtot,dxp,dyp,dep
-        real*4 prescale,cltime,trackeff,trigeff
+        real*4 fract,sigave,sigtot,dxp,dyp,dep,prescale
         real*4 xpup,ypup,dtup,hstheta
         real*4 dt,phasespcor,denscor,delcor,phase_space
         real*4 hmsprlo,hmstof,hms34,rate,rate_dat,poscs,t1
@@ -88,8 +86,7 @@ CCCCCC      Read run info from database for data           CCCCCCC
         read(16,*)
         do 
           read(16,*,iostat=stat) runid,ebeam,hsec,thetac,prescale,
-     &          bmcur1,bmcur2,bcm1charge,bcm2charge,cltime,eltime,
-     &          trackeff,trigeff,rate_dat
+     &          bmcur,bcmcharge
             if(runnum .EQ. runid) exit
           if(stat /= 0) then 
             write(6,*) "Can't find run #",
@@ -100,25 +97,15 @@ CCCCCC      Read run info from database for data           CCCCCCC
         close(16)
 
         write(6,*) "--found run #",id," info in reconmc.in"
-
-        bcmavecharge = (bcm1charge+bcm2charge)/2. !!! Average over BCMs !!!
-        bmcur = (bmcur1+bmcur2)/2.
-
+        
         write(6,*) 'Run#        = ', id
         write(6,*) 'Target#     = ', tarid
         write(6,*) 'Ebeam       = ', ebeam  
         write(6,*) 'P0          = ', hsec 
         write(6,*) 'Theta       = ', thetac
-        write(6,*) 'Prescale    = ', prescale 
-        write(6,*) 'Comp. Ltime = ', cltime
-        write(6,*) 'Elect. Ltime = ', eltime        
-        write(6,*) 'Track Eff.  = ', trackeff
-        write(6,*) 'Trig Eff.   = ', trigeff
-        write(6,*) 'Charge BCM1 = ', bcm1charge
-        write(6,*) 'Charge BCM2 = ', bcm2charge
-        write(6,*) 'Charge      = ', bcmavecharge
+        write(6,*) 'Prescale    = ', prescale     
+        write(6,*) 'Charge = ', bcmcharge
         write(6,*) 'Current     = ', bmcur
-        write(6,*) 'Rate (kHz)  = ', rate_dat
         write(6,*)
         write(6,*) 'Including  Radiative Contributions? ', dorc
         write(6,*) 'Including Charge Symmetric Contributions?', docs
@@ -159,7 +146,7 @@ CCCCCC        Read in target data from file                CCCCCCC
         ! Calculating the luminosity  
           if(i==tarid) then
              lumdata = targetdata(6)*6.022137e-10/targetdata(4)  !!g/cm2 * 6.02e23/mol*1e-33 cm2/nb/(g/mol)
-     &            *bcmavecharge/1.602177e-13          !!           * 1e-6 C/s /1.602e-19 C/e
+     &            *bcmcharge/1.602177e-13          !!           * 1e-6 C/s /1.602e-19 C/e
            endif
        enddo        
 
@@ -172,14 +159,6 @@ c       scal factor.
         denscor = 1.0 !- bmcur/25*0.2
         if(tarid.GT.3) denscor = 1.0
 
-        eff_cer = 1.
-        eff_cal = 1. 
-
-c        fract = (fract*trackeff*trigeff*cltime*eltime
-c     &            *eff_cer*eff_cal)/(prescale*denscor)
-
-c	write(6,*) 'fract =',fract,trackeff,trigeff,cltime,eltime,
-c     &           eff_cer,eff_cal,'/',prescale,denscor
 
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 
@@ -397,7 +376,7 @@ CCCCCCC            Fill new Ntuple                   CCCCCCCCC
          j = j+1
          ntu(j) = ntu(18)/rci*fract
          j = j+1
-         ntu(j) = ntu(j-1)*bmcur1/bcm1charge !rate???
+         ntu(j) = ntu(j-1)*bmcur/bcmcharge !rate???
         j=j+1
          ntu(j) = tarid
 
