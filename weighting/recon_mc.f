@@ -40,7 +40,7 @@
         real*4 fract,sigave,sigtot,dxp,dyp,dep,prescale
         real*4 xpup,ypup,dtup,hstheta
         real*4 dt,phasespcor,denscor,delcor,phase_space
-        real*4 hmsprlo,hmstof,hms34,rate,rate_dat,poscs,t1
+        real*4 hmsprlo,hmstof,hms34,rate,poscs,t1
         real*8 xb
         real*4 ex,z,emean,de
         real*4 ntu(nentries)
