@@ -26,7 +26,7 @@
       xh2=.false.
 
 c      write(filename,"(A,A5,A,I1)") "table.out.",runid,".",tarid
-      write(filename,"(A,A5,A,I1)") "table.out.",runid,".",tarid
+      write(filename,"(A,A5,A,I1)")"XStables/table.out.",runid,".",tarid
 
 
       infile = trim(filename)

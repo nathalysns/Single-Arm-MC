@@ -15,9 +15,9 @@ c------------------------------------------------
       real*8 p_min,p_max,pp,xbj
       logical thend
 
-      real*8 PI, Mp, dw2, dtheta,dE,rad
+      real*8 PI, Mp, dw2, dtheta,dE,rad,dPP
       parameter(PI=3.14159265, Mp=0.9384)
-      parameter(dw2=0.01,dtheta=0.1)
+      parameter(dw2=0.01,dtheta=0.1,dPP=0.002)
       parameter(rad = PI/180)
 
       call getarg(1,id)
@@ -35,8 +35,7 @@ c      write(6,*) "enter spec center angle"
 c      read(*,*) theta_c
 
 
-      open(unit=19,file='runplan.inp'
-     >                    ,status='old')
+      open(unit=19,file='runplan.inp',status='old')
       read(19,*)
 
       dowhile(.not.thend)
@@ -82,7 +81,9 @@ c           tt = 17
 c                 if(w2.GT.0) then
                     write(21,211) E0,pp,tt,q2,w2,xbj
 c                 endif
-                 pp = pp+dE
+c                pp = pp+dE->Binning in W2
+                 pp = pp+dPP
+                 write(6,*) pp
               enddo
               tt = tt+dtheta
            enddo
